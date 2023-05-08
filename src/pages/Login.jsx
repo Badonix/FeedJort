@@ -6,7 +6,12 @@ function Login() {
     <div class="login-page">
       <form>
         <label htmlFor="username">ნიქნეიმი</label>
-        <input type="text" name="nickname" id="nickname" />
+        <input
+          placeholder="რაცგინდა..."
+          type="text"
+          name="nickname"
+          id="nickname"
+        />
         <Link to="/" type="submit">
           შესვლა
         </Link>

@@ -17,7 +17,6 @@ function Game() {
     { image: burger, id: 2 },
     { image: shawarma, id: 3 },
   ];
-  const navigate = useNavigate();
   const handleMouseDown = () => {
     if (new Date().getTime() - lastClicked > 230) {
       setLastClicked(new Date().getTime());
