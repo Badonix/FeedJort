@@ -1,0 +1,168 @@
+@import url("//cdn.web-fonts.ge/fonts/mg-glaho-drunk/css/mg-glaho-drunk.min.css");
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #242424;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.87);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "MG Glaho Drunk", sans-serif;
+}
+#root {
+  height: 100%;
+}
+body {
+  background-color: #242424;
+}
+
+main {
+  height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main h1 {
+  color: rgba(255, 255, 255, 0.87);
+}
+main p {
+  color: rgba(255, 255, 255, 0.87);
+}
+main .jort {
+  width: 100%;
+  max-width: 50vh;
+  animation: shemosrualeba 3s ease-in-out;
+}
+main div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+}
+
+main div .food-container {
+  width: 100%;
+}
+main div .food {
+  width: 50px;
+}
+
+.nav-btn {
+  background-color: transparent;
+  padding: 5px 20px;
+  font-size: 20px;
+  border: none;
+  color: rgba(255, 255, 255, 0.87);
+  border: 1px solid rgba(255, 255, 255, 0.87);
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  transition: 0.25s;
+  text-decoration: none;
+}
+.nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.87);
+  color: #242424;
+}
+
+.leaderboard {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+.leaderboard h1 {
+  color: rgba(255, 255, 255, 0.87);
+}
+.leaderboard p {
+  color: rgba(255, 255, 255, 0.87);
+}
+.leaderboard-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  border-bottom: 1px solid rgba(219, 216, 216, 0.87);
+}
+.leaderboard-row p {
+  color: black;
+}
+
+.leaderboard-cont {
+  background-color: rgba(255, 255, 255, 0.87);
+  border-radius: 5px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.login-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page form {
+  background-color: rgba(255, 255, 255, 0.87);
+  border-radius: 5px;
+  padding: 20px 30px;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+.login-page form input {
+  width: 300px;
+  height: 25px;
+  font-size: 20px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  outline: none;
+  border: 1px solid rgba(219, 216, 216, 0.87);
+}
+.login-page form a {
+  background-color: transparent;
+  padding: 5px 20px;
+  font-size: 20px;
+  border: none;
+  text-align: center;
+  color: #242424;
+  border: 1px solid rgba(255, 255, 255, 0.87);
+  cursor: pointer;
+  transition: 0.25s;
+  text-decoration: none;
+}
+.login-page form a:hover {
+  background-color: #242424;
+  color: rgba(255, 255, 255, 0.87);
+}
+.login-page form label {
+  font-size: 25px;
+}
+@keyframes shemosrualeba {
+  0% {
+    scale: 0;
+    transform: translateX(-500px);
+  }
+  100% {
+    scale: 1;
+    transform: translateX(0);
+  }
+}
