@@ -5,10 +5,22 @@ import Game from "./pages/Game";
 import Login from "./pages/Login";
 import Leaderboard from "./pages/Leaderboard";
 import io from "socket.io-client";
+import backgroundMusic from "/background.mp3";
 
 const socket = io("http://localhost:3000");
 
 function App() {
+  useEffect(() => {
+    const audio = new Audio(backgroundMusic);
+    audio.loop = true;
+    audio.volume = 0.25;
+    audio.play();
+
+    return () => {
+      audio.pause();
+    };
+  }, []);
+
   useEffect(() => {
     socket.on("connect", () => {
       console.log("Connected to server");
@@ -27,4 +39,3 @@ function App() {
 }
 
 export default App;
-Game;

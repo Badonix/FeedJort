@@ -6,6 +6,8 @@ import pizza from "../assets/pizza.png";
 import burger from "../assets/burger.png";
 import shawarma from "../assets/shawarma.png";
 import { Link, useNavigate } from "react-router-dom";
+import ClickableLink from "../components/ClickableLink";
+import eatSound from "/eat.mp3";
 
 function Game({ socket }) {
   const [image, setImage] = useState(imgDefault);
@@ -24,6 +26,8 @@ function Game({ socket }) {
       const calorie = Math.floor(Math.random() * 5);
       setCalories((prev) => prev + calorie);
       setImage(imgOpenMouth);
+      const audio = new Audio(eatSound);
+      audio.play();
       const newImage = {
         image: divs[Math.floor(Math.random() * divs.length)].image,
         x: Math.floor(Math.random() * 100) + "%",
@@ -60,9 +64,9 @@ function Game({ socket }) {
   return (
     <>
       <main>
-        <Link to="/leaderboard" className="nav-btn">
+        <ClickableLink to="/leaderboard" className="nav-btn">
           ლიდერბორდი
-        </Link>
+        </ClickableLink>
         <div>
           <h1>გამოკვებე ჯორთი</h1>
           <img
