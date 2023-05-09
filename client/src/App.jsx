@@ -7,17 +7,28 @@ import Leaderboard from "./pages/Leaderboard";
 import io from "socket.io-client";
 import backgroundMusic from "/background.mp3";
 
-const socket = io("http://localhost:3000");
+const socket = io("https://feedjortback-production.up.railway.app");
 
 function App() {
+  function startBackgroundMusic() {
+    if (!startBackgroundMusic.audio) {
+      startBackgroundMusic.audio = new Audio(backgroundMusic);
+      startBackgroundMusic.audio.loop = true;
+    }
+    if (startBackgroundMusic.audio.paused) {
+      startBackgroundMusic.audio.play();
+    }
+  }
+
   useEffect(() => {
-    const audio = new Audio(backgroundMusic);
-    audio.loop = true;
-    audio.volume = 0.25;
-    audio.play();
+    window.addEventListener("click", startBackgroundMusic);
 
     return () => {
-      audio.pause();
+      window.removeEventListener("click", startBackgroundMusic);
+      if (startBackgroundMusic.audio) {
+        startBackgroundMusic.audio.pause();
+        startBackgroundMusic.audio = null;
+      }
     };
   }, []);
 

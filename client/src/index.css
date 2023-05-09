@@ -137,10 +137,11 @@ main div .food {
   outline: none;
   border: 1px solid rgba(219, 216, 216, 0.87);
 }
-.login-page form a {
+.login-page form button {
   background-color: transparent;
   padding: 5px 20px;
   font-size: 20px;
+  width: 100%;
   border: none;
   text-align: center;
   color: #242424;
@@ -159,6 +160,10 @@ main div .food {
 
 .current-user p {
   color: rgb(0, 87, 159);
+}
+.error {
+  margin-top: 10px;
+  color: rgb(142, 0, 0);
 }
 @keyframes shemosrualeba {
   0% {
