@@ -7,7 +7,7 @@ import burger from "../assets/burger.png";
 import shawarma from "../assets/shawarma.png";
 import { Link, useNavigate } from "react-router-dom";
 
-function Game() {
+function Game({ socket }) {
   const [image, setImage] = useState(imgDefault);
   const [images, setImages] = useState([]);
   const [lastClicked, setLastClicked] = useState(0);
@@ -20,12 +20,17 @@ function Game() {
   const handleMouseDown = () => {
     if (new Date().getTime() - lastClicked > 230) {
       setLastClicked(new Date().getTime());
+      const calorie = Math.floor(Math.random() * 5);
       setCalories((prev) => prev + Math.floor(Math.random() * 5));
       setImage(imgOpenMouth);
       const newImage = {
         image: divs[Math.floor(Math.random() * divs.length)].image,
         x: Math.floor(Math.random() * 100) + "%",
       };
+      socket.emit("click", {
+        id: socket.id,
+        calorie,
+      });
       setImages([...images, newImage]);
     }
   };
