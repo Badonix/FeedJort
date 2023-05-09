@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 function Login({ socket }) {
   const [nickname, setNickname] = useState("");
-  const handleRegister = () => {
+  const [id, setId] = useState();
+
+  const navigate = useNavigate();
+  const handleRegister = (e) => {
+    e.preventDefault();
     console.log(nickname);
     socket.emit("register", { nickname });
     socket.on("get_id", (data) => {
-      console.log(data);
+      setId(data.id);
+      localStorage.setItem("id", data.id);
+      navigate("/");
     });
   };
+  useEffect(() => {
+    localStorage.getItem("id") ? navigate("/") : "";
+  }, []);
   return (
-    <div class="login-page">
+    <div className="login-page">
       <form onSubmit={handleRegister}>
         <label htmlFor="username">ნიქნეიმი</label>
         <input

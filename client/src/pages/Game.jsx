@@ -12,6 +12,7 @@ function Game({ socket }) {
   const [images, setImages] = useState([]);
   const [lastClicked, setLastClicked] = useState(0);
   const [calories, setCalories] = useState(0);
+  const navigate = useNavigate();
   const divs = [
     { image: pizza, id: 1 },
     { image: burger, id: 2 },
@@ -21,14 +22,14 @@ function Game({ socket }) {
     if (new Date().getTime() - lastClicked > 230) {
       setLastClicked(new Date().getTime());
       const calorie = Math.floor(Math.random() * 5);
-      setCalories((prev) => prev + Math.floor(Math.random() * 5));
+      setCalories((prev) => prev + calorie);
       setImage(imgOpenMouth);
       const newImage = {
         image: divs[Math.floor(Math.random() * divs.length)].image,
         x: Math.floor(Math.random() * 100) + "%",
       };
       socket.emit("click", {
-        id: socket.id,
+        id: localStorage.getItem("id"),
         calorie,
       });
       setImages([...images, newImage]);
@@ -49,6 +50,13 @@ function Game({ socket }) {
     return () => clearTimeout(timeout);
   }, [images]);
 
+  useEffect(() => {
+    !localStorage.getItem("id") && navigate("/login");
+    socket.emit("get_calories", { id: localStorage.getItem("id") });
+    socket.on("calories", (data) => {
+      setCalories(data.calories);
+    });
+  }, []);
   return (
     <>
       <main>

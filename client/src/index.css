@@ -156,6 +156,10 @@ main div .food {
 .login-page form label {
   font-size: 25px;
 }
+
+.current-user p {
+  color: rgb(0, 87, 159);
+}
 @keyframes shemosrualeba {
   0% {
     scale: 0;

@@ -1,11 +1,17 @@
 import React from "react";
 
-function LeaderboardRow() {
+function LeaderboardRow({ data, index }) {
   return (
-    <div className="leaderboard-row">
-      <p>1</p>
-      <p>ბადონიქს</p>
-      <p>9999</p>
+    <div
+      className={
+        data.id == localStorage.getItem("id")
+          ? "leaderboard-row current-user"
+          : "leaderboard-row"
+      }
+    >
+      <p>{index + 1}</p>
+      <p>{data.nickname || "უცნობი ბებია"}</p>
+      <p>{data.calories} კალორია</p>
     </div>
   );
 }
