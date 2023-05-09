@@ -25,7 +25,7 @@ function Leaderboard() {
       <p>ყველაზე მზრუნველები</p>
       <div className="leaderboard-cont">
         {leaderboard.map((el, index) => {
-          return <LeaderboardRow data={el} index={index} />;
+          return el.nickname && <LeaderboardRow data={el} index={index} />;
         })}
       </div>
     </section>
