@@ -33,16 +33,10 @@ function App() {
     };
   }, []);
 
-  useEffect(() => {
-    socket.on("connect", () => {
-      console.log("Connected to server");
-    });
-  }, []);
   function handleBackgroundImageChange() {
     const backgroundImageUrl = `/background-${
       Math.floor(Math.random() * 5) + 1
     }.gif`;
-    console.log(backgroundImageUrl);
     setBackgroundImageUrl(backgroundImageUrl);
   }
 

@@ -11,11 +11,6 @@ function Leaderboard() {
       .then((res) => res.data)
       .then((data) => setLeaderboard(data));
   }, []);
-  useEffect(() => {
-    leaderboard?.forEach((el) => {
-      console.log(el);
-    });
-  }, [leaderboard]);
   return (
     <section className="leaderboard">
       <ClickableLink className="nav-btn" to="/">

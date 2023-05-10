@@ -8,7 +8,6 @@ function Login({ socket }) {
   const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
-    console.log(nickname.length);
 
     if (nickname.length > 17) {
       setError("ძალიან გრძელია :(");
@@ -23,9 +22,7 @@ function Login({ socket }) {
       });
     }
   };
-  useEffect(() => {
-    console.log(nickname, error);
-  }, [nickname]);
+
   useEffect(() => {
     localStorage.getItem("id") ? navigate("/") : "";
   }, []);
