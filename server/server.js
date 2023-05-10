@@ -68,7 +68,8 @@ io.on("connection", (socket) => {
 });
 
 app.get("/leaderboard", (req, res) => {
-  const sortedLeaderboard = users
+  let filteredUsers = users.filter((user) => user.nickname);
+  const sortedLeaderboard = filteredUsers
     .sort((a, b) => b.calories - a.calories)
     .slice(0, 50);
 

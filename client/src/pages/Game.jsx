@@ -14,6 +14,7 @@ function Game({ socket }) {
   const [images, setImages] = useState([]);
   const [lastClicked, setLastClicked] = useState(0);
   const [calories, setCalories] = useState(0);
+  const [backgroundImageUrl, setBackgroundImageUrl] = useState("");
   const navigate = useNavigate();
   const divs = [
     { image: pizza, id: 1 },
@@ -39,6 +40,14 @@ function Game({ socket }) {
       setImages([...images, newImage]);
     }
   };
+
+  function handleBackgroundImageChange() {
+    const backgroundImageUrl = `/background-${
+      Math.floor(Math.random() * 5) + 1
+    }.gif`;
+    console.log(backgroundImageUrl);
+    setBackgroundImageUrl(backgroundImageUrl);
+  }
 
   const handleMouseUp = () => {
     setImage(imgHappy);
