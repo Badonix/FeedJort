@@ -7,7 +7,7 @@ function Leaderboard() {
   const [leaderboard, setLeaderboard] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/leaderboard")
+      .get("https://feedjortback-production.up.railway.app/leaderboard")
       .then((res) => res.data)
       .then((data) => setLeaderboard(data));
   }, []);

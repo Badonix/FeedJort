@@ -7,7 +7,7 @@ import Leaderboard from "./pages/Leaderboard";
 import io from "socket.io-client";
 import backgroundMusic from "/background.mp3";
 
-const socket = io("http://localhost:3000");
+const socket = io("https://feedjortback-production.up.railway.app");
 
 function App() {
   const [backgroundImageUrl, setBackgroundImageUrl] = useState("");
