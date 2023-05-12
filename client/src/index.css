@@ -175,6 +175,24 @@ main div .food {
   left: 20px;
   right: auto;
 }
+
+@media (max-width: 621px) {
+  .leaderboard {
+    padding-top: 100px;
+  }
+}
+@media (max-width: 423px) {
+  .nav-btn {
+    font-size: 16px;
+  }
+}
+@media (max-width: 350px) {
+  .nav-btn {
+    font-size: 14px;
+    padding: 2px 2px;
+  }
+}
+
 @keyframes shemosrualeba {
   0% {
     scale: 0;
